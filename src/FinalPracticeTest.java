@@ -11,6 +11,19 @@ public class FinalPracticeTest {
     }
 
     // TODO: Make more tests for oddIndexSum
+    @Test
+    void testOddIndexSum_SingularOdd() {
+        ListNode list = new ListNode(1, new ListNode(2));
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(2, actual);
+    }
 
+    @Test
+    void testOddIndexSum_null() {
+        ListNode list = null;
+        int actual = FinalPractice.oddIndexSum(list);
+        assertEquals(0, actual);
+    }
+    
     // TODO: Make thorough tests for ALL the questions on the study guide
 }

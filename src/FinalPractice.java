@@ -16,9 +16,45 @@ public class FinalPractice {
      * @return the sum of the values at odd indexes
      */
     public static int oddIndexSum(ListNode head) {
-        // TODO: implement this AND MAKE MORE UNIT TESTS FOR IT
-        return -1;
+        ListNode curr = head;
+        int i = 0;
+        int sum = 0;
+
+        if (head == null) {
+            return 0;
+        }
+
+        while (curr != null) {
+            if (i % 2 != 0) {
+                sum += curr.data;
+            }
+            i++;
+            curr = curr.next;
+        }
+        return sum;
     }
 
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+
+    public static int largestLastThree(ListNode head) {
+        if (head == null) return 0;
+
+        ListNode curr = head;
+        int count = 0;
+        int highest = Integer.MIN_VALUE;
+
+        while (curr != null) {
+            count++;
+            curr = curr.next;
+        }
+
+        for (int i = count - 3; i < count; i++) {
+            if (curr.data > highest) {
+                highest = curr.data;
+            }
+            curr = curr.next;
+        }
+
+        return highest;
+    }
 }
