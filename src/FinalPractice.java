@@ -78,4 +78,18 @@ public class FinalPractice {
 
         return sum;
     }
+
+    public static int oddBranchNodesSum(TreeNode root) {
+        if (root == null) return 0;
+
+        int sum = 0;
+
+        if((root.left != null || root.right != null) && root.data % 2 != 0) {
+            sum += root.data;
+        }
+        sum += oddBranchNodesSum(root.left);
+        sum += oddBranchNodesSum(root.right);
+
+        return sum;
+    }
 }

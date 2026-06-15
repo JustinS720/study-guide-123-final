@@ -105,4 +105,61 @@ public class FinalPracticeTest {
         int actual = FinalPractice.evenLeafNodesSum(root);
         assertEquals(12, actual);
     }
+
+    // oddBranchNodesSum
+
+    @Test
+    void testOddBranchNodesSum() {
+        TreeNode root = new TreeNode(15);
+
+        root.left = new TreeNode(9);
+        root.left.left = new TreeNode(8);
+        root.left.right = new TreeNode(11);
+        root.left.left.left = new TreeNode(2);
+        root.left.left.right = new TreeNode(6);
+
+        root.right = new TreeNode(4);
+        root.right.right = new TreeNode(30);
+        root.right.left = new TreeNode(21);
+        root.right.left.right = new TreeNode(23);
+
+        int actual = FinalPractice.oddBranchNodesSum(root);
+        assertEquals(45, actual);
+    }
+
+    @Test
+    void testOddBranchNodesSumNull() {
+        TreeNode root = null;
+        int actual = FinalPractice.oddBranchNodesSum(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testOddBranchNodesSumNoBranchNode() {
+        TreeNode root = new TreeNode(5);
+        int actual = FinalPractice.oddBranchNodesSum(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testOddBranchNodesSumSingularBranchNode() {
+        TreeNode root = new TreeNode(5);
+
+        root.left = new TreeNode(2);
+
+        int actual = FinalPractice.oddBranchNodesSum(root);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    void testOddBranchNodesSumOnlyEven() {
+        TreeNode root = new TreeNode(4);
+
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(8);
+
+        int actual = FinalPractice.oddBranchNodesSum(root);
+        assertEquals(0, actual);
+    }
 }
