@@ -37,6 +37,7 @@ public class FinalPractice {
     // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
 
     public static int largestLastThree(ListNode head) {
+
         if (head == null) return 0;
 
         ListNode curr = head;
@@ -48,7 +49,13 @@ public class FinalPractice {
             curr = curr.next;
         }
 
-        for (int i = count - 3; i < count; i++) {
+        curr = head;
+
+        for (int i = 0; i < count - 3; i++) {
+            curr = curr.next;
+        }
+
+        while (curr != null) {
             if (curr.data > highest) {
                 highest = curr.data;
             }
