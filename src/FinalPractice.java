@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -91,5 +94,25 @@ public class FinalPractice {
         sum += oddBranchNodesSum(root.right);
 
         return sum;
+    }
+
+    public static Map<Integer, Integer> mapCount(ListNode head) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        ListNode curr = head;
+
+        if (curr == null) return null;
+
+        while (curr != null) {
+            if (countMap.containsKey(curr.data)) {
+                countMap.put(curr.data, countMap.get(curr.data)+1);
+            }
+            else {
+                countMap.put(curr.data, 1);
+            }
+            curr = curr.next;
+        }
+
+        return countMap;
     }
 }

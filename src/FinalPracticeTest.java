@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -162,4 +165,51 @@ public class FinalPracticeTest {
         int actual = FinalPractice.oddBranchNodesSum(root);
         assertEquals(0, actual);
     }
+
+    // mapCount
+
+    @Test
+    void testMapCount() {
+        ListNode list = new ListNode(4, new ListNode(34, new ListNode(4, new ListNode(16, new ListNode(4, new ListNode(16, new ListNode(29, new ListNode(8, new ListNode(8)))))))));
+
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(4,3);
+        expected.put(8,2);
+        expected.put(16,2);
+        expected.put(29,1);
+        expected.put(34,1);
+
+        Map<Integer, Integer> actual = FinalPractice.mapCount(list);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testMapCountNull() {
+        ListNode list = null;
+        Map<Integer, Integer> expected = null;
+
+        Map<Integer, Integer> actual = FinalPractice.mapCount(list);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testMapCountSameNumber() {
+        ListNode list = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1)))))))));;
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(1, 9);
+
+        Map<Integer, Integer> actual = FinalPractice.mapCount(list);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testMapCountSingular() {
+        ListNode list = new ListNode(67); // haha that number
+        Map<Integer, Integer> expected = new HashMap<>();
+        expected.put(67, 1);
+
+        Map<Integer, Integer> actual = FinalPractice.mapCount(list);
+        assertEquals(expected, actual);
+    }
+
 }
